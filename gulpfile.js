@@ -11,7 +11,8 @@ const uglifycss = require('gulp-uglifycss');
 
 gulp.task('js', function() {
   return gulp.src([
-    'js/*/*.js'])
+    'assets/js/*.js',
+    'assets/js/*/*.js'])
     .pipe(concat('index.js'))
     .pipe(uglify())
     .pipe(gulp.dest('./dist/'));

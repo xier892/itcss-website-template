@@ -1,5 +1,5 @@
 const gulp = require('gulp');
-const rename = require('gulp-rename');
+// const rename = require('gulp-rename');
 
 const concat = require('gulp-concat');
 const uglifyes = require('uglify-es');
@@ -9,25 +9,20 @@ const uglify = composer(uglifyes, console);
 const concatCss = require('gulp-concat-css');
 const uglifycss = require('gulp-uglifycss');
 
-// gulp.task('js', function() {
-//   return gulp.src([
-//     'js/data/*.js',
-//     'js/src/*.js',
-//     'js/templates/*super.js',
-//     'js/templates/*.js',
-//     'js/event/*.js',
-//     'js/event/main.js'])
-//     .pipe(concat('index.min.js'))
-//     .pipe(uglify())
-//     .pipe(gulp.dest('./dist/'));
-// });
+gulp.task('js', function() {
+  return gulp.src([
+    'js/*/*.js'])
+    .pipe(concat('index.js'))
+    .pipe(uglify())
+    .pipe(gulp.dest('./dist/'));
+});
 
 gulp.task('css', function() {
   return gulp.src([
     'assets/css/*/*.css'])
     .pipe(concatCss('main.css'))
-    .pipe(gulp.dest('dist'))
-    .pipe(rename('main.min.css'))
+    // .pipe(gulp.dest('dist'))
+    // .pipe(rename('main.min.css'))
     .pipe(uglifycss({
       uglyComments: true
     }))

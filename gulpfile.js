@@ -24,12 +24,7 @@ const uglifycss = require('gulp-uglifycss');
 
 gulp.task('css', function() {
   return gulp.src([
-    'assets/css/01-settings/*.css',
-    'assets/css/02-generic/*.css',
-    'assets/css/03-elements/*.css',
-    'assets/css/04-objects/*.css',
-    'assets/css/05-components/*.css',
-    'assets/css/06-trumps/*.css'])
+    'assets/css/*/*.css'])
     .pipe(concatCss('main.css'))
     .pipe(gulp.dest('dist'))
     .pipe(rename('main.min.css'))
